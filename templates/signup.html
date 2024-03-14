@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Login</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .bg-animated{
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to right, #d1d2db, #60a5fa);
+            overflow: hidden;
+        }
+
+        nav{
+             background: linear-gradient(to right, #aeaeb6, #4595f7); 
+            
+            padding: 15px 0px 15px 0px;
+        }
+
+        nav a{
+            font-size: 15px;
+            font-weight: 600;
+            color: #f2f2f2;
+            position: relative;
+            left: 85%;
+            text-decoration: none;
+            padding-right: 5px;
+        }
+
+        nav a:hover{
+            text-decoration: underline;
+        }
+
+
+        .burbuja{
+            border-radius: 50%;
+            background: #fff;
+            opacity: .3;
+            position: absolute;
+            bottom: -1;
+            animation: burbujas 3s linear infinite;
+        }
+        
+
+        .burbuja:nth-child(1){
+            width: 80px;
+            height: 80px;
+            left: 5%;
+            animation-duration: 3s;
+            /* animation-delay: 3s; */
+            animation-delay: 0s;
+        }
+        
+
+        .burbuja:nth-child(2){
+            width: 100px;
+            height: 100px;
+            left: 30%;
+            animation-duration: 1.5s;
+            /* animation-delay: 5s; */
+            animation-delay: 0s;
+        }
+
+        .burbuja:nth-child(3){
+            width: 60px;
+            height: 60px;
+            left: 20%;
+            animation-duration: 6s;
+            /* animation-delay: 7s; */
+            animation-delay: 0s;
+        }
+
+        .burbuja:nth-child(4){
+            width: 90px;
+            height: 90px;
+            left: 90%;
+            animation-duration: 2s;
+            /* animation-delay: 2s; */
+            animation-delay: 0s;
+        }
+
+        .burbuja:nth-child(5){
+            width: 70px;
+            height: 70px;
+            left: 47%;
+            animation-duration: 5s;
+            /* animation-delay: 1s; */
+            animation-delay: 0s;
+        }
+
+        .burbuja:nth-child(6){
+            width: 10px;
+            height: 10px;
+            left: 89%;
+            animation-duration: 8s;
+            /* animation-delay: 6s; */
+            animation-delay: 0s;
+        }
+
+        .burbuja:nth-child(7){
+            width: 40px;
+            height: 40px;
+            left: 56%;
+            animation-duration: 3.5s;
+            animation-delay: 0s;
+        }
+
+        .burbuja:nth-child(8){
+            width: 25px;
+            height: 25px;
+            left: 65%;
+            animation-duration: 3s;
+            /* animation-delay: 3s; */
+            animation-delay: 0s;
+        }
+
+        .burbuja:nth-child(9){
+            width: 50px;
+            height: 50px;
+            left: 82%;
+            animation-duration: 2s;
+            animation-delay: 0s;
+        }
+
+        .burbuja:nth-child(10){
+            width: 20px;
+            height: 20px;
+            left: 70%;
+            animation-duration: 5s;
+            /* animation-delay: 2s; */
+            animation-delay: 0s;
+        }
+
+        @keyframes burbujas{
+            0%{
+                bottom: 0;
+                opacity: 0;
+            }
+            30%{
+                transform: translateX(30x);
+            }
+            50%{
+                opacity: .4;
+            }
+            100%{
+                bottom: 100vh;
+                opacity: 0;
+            }
+        }
+
+        /*login*/
+
+        .contenedor{
+            width: 370px;
+            position: relative;
+            left: 36%;
+            top: 8%;
+        }
+
+        .login-form{
+            background: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .titulo-login{
+            padding: 25px 0px 30px 0px;
+            text-align: center;
+        }
+
+        .titulo-login h1{
+            font-size: 30px;
+            color: #000;
+        }
+
+        .input{
+            width: 250px;
+            padding: 10px 5px;
+            margin-bottom: 8px;
+            border-radius: 3px;
+            border: 1px solid #d2d2d2;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .input:focus{
+            border: 1px solid #8c9094;
+        }
+
+        .login-button{
+            padding-top: 8px;
+            padding-bottom: 25px;
+        }
+
+        .button{
+            width: 250px;
+            padding: 8px 5px;
+            margin-bottom: 8px;
+            border-radius: 3px;
+            border: 1px solid #1877f2;
+            font-size: 14px;
+            color: #f2f2f2;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            outline: none;
+            background-color: #1877f2;
+        }
+
+        .button:hover{
+            background-color: rgb(0, 149, 246);
+        }
+
+        .forgot-password a{
+            font-size: 13px;
+            text-decoration: none;
+            color: rgb(0, 149, 246);
+        }
+
+        .forgot-password a:hover{
+            text-decoration: underline;
+        }
+
+        .contenedor-separador{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0px 50px;
+            margin-bottom: 15px;
+            margin-top: 5px;
+        }
+
+        .separador{
+            width: 40%;
+            height: 1px;
+            background-color: #8c9094;
+        }
+
+        .o{
+            color: #000;
+        }
+
+        .login-text{
+            font-size: 14px;
+            cursor: pointer;
+            color: #000;
+            display: flex;
+            align-items: center;
+            position: relative;
+            left: 70px;
+        }
+
+        .login-google{
+            position: relative;
+            left: 15px;
+        }
+
+        .link{
+            text-decoration: none;
+            color: #1877f2;
+        }
+
+        .registrate{
+            margin-top: 20px;
+        }
+
+        .registrate span{
+            font-size: 17px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .boton-registrate{
+            width: 250px;
+            padding: 8px 5px;
+            margin-bottom: 8px;
+            border-radius: 3px;
+            border: 1px solid #36a420;
+            font-size: 14px;
+            color: #f2f2f2;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            outline: none;
+            background-color: #36a420;
+            margin-top: 10px;
+        }
+
+        .boton-registrate:hover{
+            background: #42b72a;
+        }
+
+        .boton-registrate span{
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .contenedor-descarga{
+        display: flex;
+        align-items: center; 
+        justify-content: space-evenly;
+        margin-top: 20px;
+        }
+
+        /*footer*/
+
+        footer{
+            background:  #f2f2f2;
+            
+        }
+
+        .footer{
+            display: flex;
+            justify-content: space-evenly;
+            padding: 50px 0px 30px 0px;
+            font-size: 13px;
+            color: #8c9094;
+            cursor: pointer;
+        }
+
+        .footer p:hover{
+            text-decoration: underline;
+        }
+
+        .footer-final{
+            display: flex;
+            padding-left: 500px;
+            color: #8c9094;
+            font-size: 13px;
+        }
+
+        .footer-final select{
+            margin-right: 20px;
+            margin-bottom: 40px;
+            border-radius: 3px;
+            border:1px solid #8c9094;
+            outline: none;
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Inicia sesión</a>
+            <a href="#">Registrate</a>
+        </nav>
+    </header>
+
+    <main class="bg-animated">
+        <div class="burbujas">
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+            <div class="burbuja"></div>
+        </div>
+        <div class="contenedor">
+            <div class="login-form">
+                <div class="titulo-login">
+                    <h1>Register</h1>
+                </div>
+
+                <!-- <div class="email-form">
+                    <form action="get">
+                        <input type="email" placeholder="Correo electrónico" class="input">
+                    </form>
+                </div>
+
+                <div class="password-form">
+                    <form action="get">
+                        <input type="password" placeholder="Contraseña" class="input">
+                    </form>
+                </div>
+
+                <div class="login-button">
+                    <button class="button">Inicia sesión</button>
+                </div> -->
+
+                <form id=login action="signup" method="post">
+                     {% csrf_token%} 
+                    <div class="email-form">
+                        <input name="Newusername" type="text" placeholder="User" class="input" required>
+                    </div>
+
+                    <div class="name-form">
+                        <input name="Newname" type="text" placeholder="Name" class="input" required>
+                    </div>
+
+                    <div class="password-form">
+                        <input name="Newpassword" type="password" placeholder="Password" class="input" required>
+                    </div>
+                    
+                    <div class="contenedor-separador">
+                        <div class="separador"></div>
+                        <div class="o"><span>o</span></div>
+                        <div class="separador"></div>
+                    </div>
+
+                    <div class="login-button">
+                        <input type="submit" class="button " value="Register">
+                    </div> 
+                </form>
+                <!-- <div class="forgot-password">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div> -->
+
+                 
+
+               <!-- <div class="login-facebook">
+                    <div class="login-text"><img src="img/Facebook-logo.png" alt="facebook-logo" class="logos"
+                            width="28px"
+                            height="19px">
+                        <span class="text">Inicia sesión con <a href="https://www.facebook.com" target="_blank" class="link">Facebook</a></span>
+                    </div>
+                </div>
+
+                <div class="login-google">
+                    <div class="login-text">
+                        <img src="img/google-logo-.png" alt="google-logo" class="logos"
+                            width="20px"
+                            height="20px">
+                        <span class="text">Inicia sesión con <a href="#" class="link">Google</a></span>
+                    </div>
+                </div> -->
+                <!-- <form id="signup" action="" method="post">
+                    {% csrf_token%}
+                    <div class="registrate">
+                        <span>¿No tienes una cuenta?</span><br>
+                        <input type="submit" class="boton-registrate" value="Registrate">
+                    </div>
+                </form> -->
+            </div>
+            <!-- <div class="contenedor-descarga">
+                <div class="descarga">
+                    <a href="#"><img src="img/google-play.png" alt="google play"
+                        width="120px"
+                        height="45px"></a>
+                </div>
+
+                <div class="descarga">
+                    <a href="#"><img src="img/app-store.png" alt="App store"
+                        width="120px"
+                        height="45px"></a>
+                </div>
+            </div> -->
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <p>Soporte</p>
+            <p>Contáctanos</p>
+            <p>Condiciones</p>
+            <p>Privacidad</p>
+        </div>
+        <div class="footer-final">
+            <select name="" id="">
+                <option value="1">English</option>
+                <option value="2">Español</option>
+            </select>
+            <p>&copy;2022 Betzabeth Bruguera</p>
+        </div>
+    </footer>
+</body>
+</html>
